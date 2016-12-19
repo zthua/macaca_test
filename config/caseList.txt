@@ -1,0 +1,5 @@
+#testSend
+#testReceive
+testLogin
+#testAddDeleteWallets
+#testConvertBetweenWallets

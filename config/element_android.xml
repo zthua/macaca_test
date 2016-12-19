@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+
+    <!--导航页面 -->
+    <activity name = "GuideActivity"><!--activity名称-->
+
+        <element name="Guide">
+            <pathtype>ID</pathtype>
+            <pathvalue>guideLayout</pathvalue>
+        </element>
+    </activity>
+
+</page>

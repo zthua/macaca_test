@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+
+    <!--导航页面 -->
+    <activity name = "Login"><!--activity名称-->
+
+        <element name="country_code">
+            <pathtype>xpath</pathtype>
+            <pathvalue>//UIAApplication[1]/UIAWindow[1]/UIAButton[1]</pathvalue>
+        </element>
+
+        <element name="phone_input">
+            <pathtype>xpath</pathtype>
+            <pathvalue>//UIAApplication[1]/UIAWindow[1]/UIATextField[1]</pathvalue>
+        </element>
+
+        <element name="next">
+            <pathtype>name</pathtype>
+            <pathvalue>Next</pathvalue>
+        </element>
+
+        <element name="SMS_verification">
+            <pathtype>name</pathtype>
+            <pathvalue>SMS Verification</pathvalue>
+        </element>
+
+        <element name="input_pin">
+            <pathtype>name</pathtype>
+            <pathvalue>Input your mobi PIN</pathvalue>
+        </element>
+
+    </activity>
+
+    <activity name="me">
+        <element name="me">
+            <pathtype>name</pathtype>
+            <pathvalue>me</pathvalue>
+        </element>
+
+        <element name="user_phone">
+            <pathtype>xpath</pathtype>
+            <pathvalue>//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[2]</pathvalue>
+        </element>
+
+        <element name="Settings">
+            <pathtype>name</pathtype>
+            <pathvalue>Settings</pathvalue>
+        </element>
+        <element name="Sign_out">
+            <pathtype>name</pathtype>
+            <pathvalue>Sign Out</pathvalue>
+        </element>
+    </activity>
+
+    <activity name="wallets">
+        <element name="wallets">
+            <pathtype>name</pathtype>
+            <pathvalue>wallets</pathvalue>
+        </element>
+
+        <element name="send">
+            <pathtype>name</pathtype>
+            <pathvalue>Send</pathvalue>
+        </element>
+        <element name="phone_number">
+            <pathtype>name</pathtype>
+            <pathvalue>Phone Number</pathvalue>
+        </element>
+         <element name="phone_input">
+            <pathtype>xpath</pathtype>
+            <pathvalue>//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[3]/XCUIElementTypeTextField[2]</pathvalue>
+        </element>
+        <element name="transaction_successful">
+            <pathtype>name</pathtype>
+            <pathvalue>Transaction Successful</pathvalue>
+        </element>
+
+        <element name="convert">
+            <pathtype>name</pathtype>
+            <pathvalue>Convert</pathvalue>
+        </element>
+
+        <element name="icon_convert">
+            <pathtype>name</pathtype>
+            <pathvalue>icon convert input</pathvalue>
+        </element>
+         <element name="convert_successfully">
+            <pathtype>name</pathtype>
+            <pathvalue>You have successfully converted</pathvalue>
+        </element>
+
+        <element name="receive">
+            <pathtype>name</pathtype>
+            <pathvalue>Receive</pathvalue>
+        </element>
+
+    </activity>
+
+    <activity name="common">
+        <element name="cancel">
+            <pathtype>name</pathtype>
+            <pathvalue>Cancel</pathvalue>
+        </element>
+        <element name="continue">
+            <pathtype>name</pathtype>
+            <pathvalue>Continue</pathvalue>
+        </element>
+        <element name="send">
+            <pathtype>name</pathtype>
+            <pathvalue>Send</pathvalue>
+        </element>
+        <element name="confirm">
+            <pathtype>name</pathtype>
+            <pathvalue>Confirm</pathvalue>
+        </element>
+
+        <element name="close">
+            <pathtype>name</pathtype>
+            <pathvalue>Close</pathvalue>
+        </element>
+
+        <element name="clear">
+            <pathtype>name</pathtype>
+            <pathvalue>Clear</pathvalue>
+        </element>
+        <element name="back">
+            <pathtype>name</pathtype>
+            <pathvalue>Back</pathvalue>
+        </element>
+        <element name="back">
+            <pathtype>name</pathtype>
+            <pathvalue>Back</pathvalue>
+        </element>
+    </activity>
+
+</page>
