@@ -2,38 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdad5234-69ac-4721-a701-870ced4a145f" name="Default" comment="modify run">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/caseList.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/element_iOS.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/caseList.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/readConfig.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/bsns/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/bsns/element_iOS.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/cases/Android/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/cases/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/cases/iOS/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/cases/iOS/demo1.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/cases/iOS/test.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/cases/iOS/testAddDeleteWallets.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/cases/iOS/testConvertBetweenWallets.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/cases/iOS/testLogin.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/cases/iOS/testReceive.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/cases/iOS/testSend.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/common/AppiumServer.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/common/DRIVER.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/common/HTMLTestRunner.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/common/Log.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/common/common.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/common/init.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testSet/common/myError.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/config.ini" afterPath="$PROJECT_DIR$/config/config.ini" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/testSet/bsns/TestCase.xls" afterPath="$PROJECT_DIR$/config/TestCase.xls" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/testSet/bsns/bsnsCommon.py" afterPath="$PROJECT_DIR$/common/bsnsCommon.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/testSet/bsns/element_android.xml" afterPath="$PROJECT_DIR$/config/element_android.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/testSet/run.py" afterPath="$PROJECT_DIR$/run.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSet/__init__.py" afterPath="$PROJECT_DIR$/testSet/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.ini" afterPath="$PROJECT_DIR$/config/config.ini" />
     </list>
     <ignored path="testApp01.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -184,20 +153,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.ini" pinned="false" current-in-tab="false">
+      <file leaf-file-name="config.ini" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/config.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="7" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.36105478">
+              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bsnsCommon.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bsnsCommon.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/bsnsCommon.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60851926">
+            <state vertical-scroll-proportion="0.0">
               <caret line="62" column="27" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
@@ -245,7 +214,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/testSet/testReview.py" />
         <option value="$PROJECT_DIR$/testSet/testSave.py" />
         <option value="$PROJECT_DIR$/testSet/testShare.py" />
         <option value="$PROJECT_DIR$/testSet/testDeleteGoods.py" />
@@ -296,6 +264,7 @@
         <option value="$PROJECT_DIR$/common/bsnsCommon.py" />
         <option value="$PROJECT_DIR$/common/common.py" />
         <option value="$PROJECT_DIR$/common/DRIVER.py" />
+        <option value="$PROJECT_DIR$/config/config.ini" />
       </list>
     </option>
   </component>
@@ -1393,14 +1362,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="7" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testSet/iOS/testLogin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1449,11 +1410,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/common/bsnsCommon.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60851926">
+        <state vertical-scroll-proportion="0.0">
           <caret line="62" column="27" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36105478">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
