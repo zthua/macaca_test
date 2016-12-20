@@ -7,9 +7,12 @@ import requests
 import unittest
 from requests.exceptions import ReadTimeout
 from multiprocessing.pool import Pool
-from .common import clear_country
 from time import sleep
 from macaca import WebDriver
+import comm
+
+get_element = comm.get_element
+DRIVER = comm.DRIVER
 
 
 class InitDevice:
@@ -57,21 +60,6 @@ class InitDevice:
 
         return device
 
-
-class DRIVER:
-
-    driver = None
-    OS = None
-
-    @classmethod
-    def set_driver(cls, driver):
-        cls.driver = driver
-
-    @classmethod
-    def set_OS(cls, OS):
-        cls.OS = OS
-
-
 def is_using(port):
     """
     判断端口号是否被占用
@@ -106,6 +94,22 @@ def get_port(count):
     return port_list
 
 
+def _clear_country(udid):
+    """
+    发送删除命令
+    :return:
+    """
+
+    os.popen("adb -s %s shell input keyevent KEYCODE_MOVE_END"% udid)
+
+    cmd = "adb -s %s shell input keyevent KEYCODE_DEL" % udid
+
+    for i in range(5):
+        os.popen(cmd)
+
+    os.popen("adb -s %s shell input keyevent KEYCODE_MOVE_END"% udid)
+
+
 class macacaServer():
     def __init__(self, devices):
 
@@ -120,7 +124,7 @@ class macacaServer():
         port_list = get_port(self.count)
 
         for i in range(self.count):
-            pool.apply(self.run_server, args=(self.devices[i], port_list[i]))
+            pool.apply_async(self.run_server, args=(self.devices[i], port_list[i]))
 
         pool.close()
         pool.join()
@@ -144,20 +148,24 @@ class macacaServer():
         DRIVER.set_OS(device.get("platformName"))
 
         if device.get("platformName") == "Android":
-            sleep(15)
 
-            driver.element("id", "com.android.packageinstaller:id/permission_allow_button").click()
+            while get_element("common", "permission_allow") is None:
+                sleep(1)
+
+            get_element("common", "permission_allow").click()
 
             sleep(5)
-            clear_country(device.get("udid"))
-            driver.element("id", "com.btcc.mobi:id/country_code").clear().send_keys("+86")
+            get_element("Login", "country_code").click()
+            _clear_country(device.get("udid"))
+            driver.element("id", "com.btcc.mobi:id/country_code").send_keys("86")
 
         self.run_test()
 
     def run_test(self):
         """运行测试
         """
-        pass
+        all_test = AllTests()
+        all_test.run_case()
 
     def is_running(self, port):
         """Determine whether server is running
@@ -198,16 +206,8 @@ class RunServer(threading.Thread):
 class AllTests:
 
     def __init__(self):
-        self.base_cases_list_path = ""
-
-    def get_case_path(self):
-        case_path = os.path.join(self.base_cases_list_path, "testSet", "cases", "Android")
-
-        if DRIVER.OS == "iOS":
-
-            case_path = os.path.join(self.base_cases_list_path, "testSet", "cases", "iOS")
-
-        return case_path
+        self.cases_list_path = os.path.join(comm.prjDir, "config", "caseList.txt")
+        self.case_path = os.path.join(comm.prjDir, "testSet")
 
     def get_case_list(self):
         """
@@ -215,7 +215,7 @@ class AllTests:
         :return:
         """
         case_list = []
-        fp = open(self.get_case_path())
+        fp = open(self.cases_list_path)
 
         for data in fp.readlines():
 
@@ -236,7 +236,7 @@ class AllTests:
 
         for case_name in case_list:
 
-            discover = unittest.defaultTestLoader.discover(self.get_case_path(), pattern=case_name+'.py', top_level_dir=None)
+            discover = unittest.defaultTestLoader.discover(self.case_path, pattern=case_name+'.py', top_level_dir=None)
             suite_module_list.append(discover)
 
         for suite in suite_module_list:
@@ -244,6 +244,14 @@ class AllTests:
                 test_suite.addTest(test_name)
 
         return test_suite
+
+    def run_case(self):
+
+        suite = self.create_suite()
+
+        runner = unittest.TextTestRunner()
+        runner.run(suite)
+
 
 if __name__ == "__main__":
 

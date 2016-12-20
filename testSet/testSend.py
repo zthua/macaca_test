@@ -4,7 +4,7 @@ import unittest
 from time import sleep
 
 from testSet import MyDriver
-import common as common
+import comm as common
 import testSet as Log
 from testSet import get_element, get_elements
 import readConfig as readConfig
@@ -55,21 +55,21 @@ class TestSend(unittest.TestCase):
 
         get_element("wallets", "phone_input").send_keys(self.send_number)
 
-        get_element("common", "continue").click()
+        get_element("comm", "continue").click()
 
         self.send_numbers("10")
-        get_element("common", "continue").click()
+        get_element("comm", "continue").click()
         sleep(2)
 
-        get_elements("common", "send")[2].click()
+        get_elements("comm", "send")[2].click()
 
-        get_element("common", "confirm").click()
+        get_element("comm", "confirm").click()
 
-        common.input_number(self.pin)
+        comm.input_number(self.pin)
 
         self.check_result("Send bitcoins with phone number")
 
-        get_element("common", "close").click()
+        get_element("comm", "close").click()
 
     def check_result(self, result_msg):
 

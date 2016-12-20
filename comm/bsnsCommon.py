@@ -89,8 +89,8 @@ def delete_wallet(element, driver):
 
     TouchAction(driver).tap(x=370, y=location_y+30).perform()
 
-    if get_element("common", "confirm").is_exist():
-        get_element("common", "confirm").click()
+    if get_element("comm", "confirm").is_exist():
+        get_element("comm", "confirm").click()
 
         sleep(3)
 

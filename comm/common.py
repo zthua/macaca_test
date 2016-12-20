@@ -4,12 +4,25 @@ import configparser
 import codecs
 from xml.etree import ElementTree as elementTree
 
-from .DRIVER import DRIVER
 from . import prjDir
 
 logger = logging.getLogger()
-driver = DRIVER.driver
 configfile_path = os.path.join(prjDir, "config", "config.ini")
+
+
+class DRIVER:
+
+    driver = None
+    OS = None
+
+    @classmethod
+    def set_driver(cls, driver):
+        cls.driver = driver
+
+    @classmethod
+    def set_OS(cls, OS):
+        cls.OS = OS
+
 
 def get_window_size():
     """
@@ -17,7 +30,7 @@ def get_window_size():
     :return:windowSize
     """
     global windowSize
-    windowSize = driver.get_window_size()
+    windowSize = DRIVER.driver.get_window_size()
     return windowSize
 
 
@@ -32,7 +45,7 @@ def my_swipe_to_up(during=None):
 
     width = window_size.get("width")
     height = window_size.get("height")
-    driver.swipe(width/2, height*3/4, width/2, height/4, during)
+    DRIVER.driver.swipe(width/2, height*3/4, width/2, height/4, during)
 
 
 def my_swipe_to_down(during=None):
@@ -44,7 +57,7 @@ def my_swipe_to_down(during=None):
     window_size = get_window_size()
     width = window_size.get("width")
     height = window_size.get("height")
-    driver.swipe(width/2, height/4, width/2, height*3/4, during)
+    DRIVER.driver.swipe(width/2, height/4, width/2, height*3/4, during)
 
 
 def my_swipe_to_left(during=None):
@@ -56,7 +69,7 @@ def my_swipe_to_left(during=None):
     window_size = get_window_size()
     width = window_size.get("width")
     height = window_size.get("height")
-    driver.swipe(width/4, height/2, width*3/4, height/2, during)
+    DRIVER.driver.swipe(width/4, height/2, width*3/4, height/2, during)
 
 
 def my_swipe_to_right(during=None):
@@ -68,7 +81,7 @@ def my_swipe_to_right(during=None):
     window_size = get_window_size()
     width = window_size.get("width")
     height = window_size.get("height")
-    driver.swipe(width*4/5, height/2, width/5, height/2, during)
+    DRIVER.driver.swipe(width*4/5, height/2, width/5, height/2, during)
 
 
 def input_number(number):
@@ -79,27 +92,37 @@ def input_number(number):
     """
     number_list = list(number)
 
-    int_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    for a in number_list:
-        if a in int_list:
+    if DRIVER.OS == "iOS":
 
-            element = driver.element("name", a)
-            element.click()
-        else:
+        int_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        for a in number_list:
+            if a in int_list:
+                element = DRIVER.driver.element("name", a)
+                element.click()
+            else:
+                continue
+    if DRIVER.OS == "Android":
+        int_dict = {
 
-            continue
+            "0": "com.btcc.mobi:id/keyboard_zero",
+            "1": "com.btcc.mobi:id/keyboard_one",
+            "2": "com.btcc.mobi:id/keyboard_two",
+            "3": "com.btcc.mobi:id/keyboard_three",
+            "4": "com.btcc.mobi:id/keyboard_four",
+            "5": "com.btcc.mobi:id/keyboard_five",
+            "6": "com.btcc.mobi:id/keyboard_six",
+            "7": "com.btcc.mobi:id/keyboard_seven",
+            "8": "com.btcc.mobi:id/keyboard_eight",
+            "9": "com.btcc.mobi:id/keyboard_nine",
+        }
 
+        for a in number:
 
-def clear_country(udid):
-    """
-    发送删除命令
-    :return:
-    """
-
-    cmd = "adb shell -s %s input keyevent KEYCODE_DEL" % udid
-
-    for i in range(5):
-        os.system(cmd)
+            if a in int_dict.keys():
+                element = DRIVER.driver.element("id", int_dict.get(a))
+                element.click()
+            else:
+                continue
 
 
 class ReadConfig:
@@ -191,7 +214,7 @@ def get_element(page_name, element_name):
         path_type = element_dict.get("pathtype")
         path_value = element_dict.get("pathvalue")
 
-        return driver.element(path_type, path_value)
+        return DRIVER.driver.element(path_type, path_value)
     except WebDriverException:
         return None
 
@@ -202,7 +225,7 @@ def get_elements(page_name, element_name):
         path_type = element_dict.get("pathtype")
         path_value = element_dict.get("pathvalue")
 
-        return driver.elements(path_type, path_value)
+        return DRIVER.driver.elements(path_type, path_value)
     except WebDriverException:
         return None
 

@@ -66,7 +66,7 @@ class TestReceive(unittest.TestCase):
         #     self.logger.info("share_apps address is not show")
         #     isOk = False
         # else:
-        #     Element("common", "cancel").click()
+        #     Element("comm", "cancel").click()
 
         if isOk:
             self.log.write_result("receive bitcoins OK")

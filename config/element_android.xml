@@ -2,12 +2,60 @@
 <page>
 
     <!--导航页面 -->
-    <activity name = "GuideActivity"><!--activity名称-->
+    <activity name = "Login"><!--activity名称-->
 
-        <element name="Guide">
-            <pathtype>ID</pathtype>
-            <pathvalue>guideLayout</pathvalue>
+        <element name="country_code">
+            <pathtype>id</pathtype>
+            <pathvalue>com.btcc.mobi:id/country_code</pathvalue>
         </element>
+
+        <element name="next">
+            <pathtype>id</pathtype>
+            <pathvalue>com.btcc.mobi:id/btn_phonenum_next</pathvalue>
+        </element>
+
+        <element name="SMS_verification">
+            <pathtype>id</pathtype>
+            <pathvalue>com.btcc.mobi:id/txt_sent</pathvalue>
+        </element>
+
+        <element name="input_pin">
+            <pathtype>id</pathtype>
+            <pathvalue>com.btcc.mobi:id/txt_pin</pathvalue>
+        </element>
+    </activity>
+
+    <activity name="me">
+        <element name="me">
+            <pathtype>id</pathtype>
+            <pathvalue>com.btcc.mobi:id/main_tab_me_layout</pathvalue>
+        </element>
+
+        <element name="user_phone">
+            <pathtype>id</pathtype>
+            <pathvalue>com.btcc.mobi:id/phone_num</pathvalue>
+        </element>
+
+        <element name="Settings">
+            <pathtype>id</pathtype>
+            <pathvalue>com.btcc.mobi:id/left_txt</pathvalue>
+        </element>
+        <element name="Sign_out">
+            <pathtype>id</pathtype>
+            <pathvalue>com.btcc.mobi:id/sign_out_btn</pathvalue>
+        </element>
+    </activity>
+
+    <activity name="common">
+        <element name="permission_allow">
+            <pathtype>id</pathtype>
+            <pathvalue>com.android.packageinstaller:id/permission_allow_button</pathvalue>
+        </element>
+        <element name="clear">
+            <pathtype>id</pathtype>
+            <pathvalue>com.btcc.mobi:id/keyboard_clear</pathvalue>
+        </element>
+
     </activity>
 
 </page>

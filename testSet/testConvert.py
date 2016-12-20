@@ -47,15 +47,15 @@ class TestConvert(unittest.TestCase):
 
         get_element("wallets", "icon_convert").click()
 
-        # while not get_element("common", "confirm").is_enabled():
+        # while not get_element("comm", "confirm").is_enabled():
         sleep(2)
 
-        get_element("common", "confirm").click()
+        get_element("comm", "confirm").click()
         sleep(1)
 
         self.check_result("convert bits to cny")
 
-        get_element("common", "close").click()
+        get_element("comm", "close").click()
 
     def check_result(self, result_msg):
 
@@ -70,13 +70,13 @@ class TestConvert(unittest.TestCase):
 
         get_element("wallets", "icon_convert").click()
 
-        # while not get_element("common", "confirm").is_enabled():
+        # while not get_element("comm", "confirm").is_enabled():
         sleep(2)
 
-        get_element("common", "confirm").click()
+        get_element("comm", "confirm").click()
         sleep(1)
 
-        get_element("common", "close").click()
+        get_element("comm", "close").click()
 
         bcommon.logout()
         # test end

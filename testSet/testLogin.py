@@ -2,9 +2,9 @@ __author__ = 'sara'
 
 import unittest
 import logging
-from common import get_element
-from common import ReadConfig
-from common import bsnsCommon
+from comm import get_element
+from comm import ReadConfig
+from comm import bsnsCommon
 from time import sleep
 
 logger = logging.getLogger()

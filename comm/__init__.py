@@ -31,9 +31,8 @@ def __set_log():
 
     return logger
 
-__set_log()
+# __set_log()
 
 __all__ = ['bsnsCommon', 'DRIVER', 'get_element', 'get_elements', 'ReadConfig']
 from . import bsnsCommon
-from .DRIVER import DRIVER
-from .common import get_element, get_elements, ReadConfig
+from .common import get_element, get_elements, DRIVER, ReadConfig

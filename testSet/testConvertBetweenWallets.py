@@ -9,7 +9,7 @@ from testSet import MyDriver
 import testSet as Log
 from testSet import Element
 import testSet as bcommon
-import common as common
+import comm as common
 
 
 class TestConvertBetweenWallets(unittest.TestCase):
@@ -52,13 +52,13 @@ class TestConvertBetweenWallets(unittest.TestCase):
 
         Element("Transactions", "wallet_amount1").click()
 
-        common.input_number("2000")
+        comm.input_number("2000")
 
         sleep(3)
 
-        Element("common", "confirm").click()
+        Element("comm", "confirm").click()
 
-        while not Element("common", "close").is_exist():
+        while not Element("comm", "close").is_exist():
             sleep(1)
         else:
             if Element("Transactions", "convert_successfully").is_exist():
@@ -66,7 +66,7 @@ class TestConvertBetweenWallets(unittest.TestCase):
             else:
                 self.log.write_result("convert wallet between bits and USD NG")
 
-            Element("common", "close").click()
+            Element("comm", "close").click()
 
         Element("Transactions", "wallets_add").click()
         Element("Transactions", "CNY").click()
@@ -81,24 +81,24 @@ class TestConvertBetweenWallets(unittest.TestCase):
 
         Element("Transactions", "wallet_amount1").click()
 
-        common.input_number("1")
+        comm.input_number("1")
 
         error_msg = Element("Transactions", "convert_error_msg").get_attribute("value")
 
-        # confirm_enable = Element("common", "confirm").get_attribute("enable")
+        # confirm_enable = Element("comm", "confirm").get_attribute("enable")
 
         if "Amount lower then min(10 bits)" == error_msg:
             self.log.write_result("check input amount can't less than 10 bits OK")
         else:
             self.log.write_result("check input amount can't less than 10 bits NG")
 
-        common.input_number("000")
+        comm.input_number("000")
 
         sleep(3)
 
-        Element("common", "confirm").click()
+        Element("comm", "confirm").click()
 
-        while not Element("common", "close").is_exist():
+        while not Element("comm", "close").is_exist():
             sleep(1)
         else:
             if Element("Transactions", "convert_successfully").is_exist():
@@ -106,7 +106,7 @@ class TestConvertBetweenWallets(unittest.TestCase):
             else:
                 self.log.write_result("convert wallet between bits and CNY NG")
 
-            Element("common", "close").click()
+            Element("comm", "close").click()
 
         # 添加wallet
         Element("Transactions", "wallets_add").click()
@@ -124,13 +124,13 @@ class TestConvertBetweenWallets(unittest.TestCase):
 
         Element("Transactions", "wallet_amount1").click()
 
-        common.input_number("1")
+        comm.input_number("1")
 
         sleep(3)
 
-        Element("common", "confirm").click()
+        Element("comm", "confirm").click()
 
-        while not Element("common", "close").is_exist():
+        while not Element("comm", "close").is_exist():
             sleep(1)
         else:
             if Element("Transactions", "convert_successfully").is_exist():
@@ -138,19 +138,19 @@ class TestConvertBetweenWallets(unittest.TestCase):
             else:
                 self.log.write_result("convert wallet between USD and EUR NG")
 
-            Element("common", "close").click()
+            Element("comm", "close").click()
 
         bcommon.convert_wallet(Element("Transactions", "CNY").get(), self.driver)
 
         Element("Transactions", "wallet_amount1").click()
 
-        common.input_number("1")
+        comm.input_number("1")
 
         sleep(3)
 
-        Element("common", "confirm").click()
+        Element("comm", "confirm").click()
 
-        while not Element("common", "close").is_exist():
+        while not Element("comm", "close").is_exist():
             sleep(1)
         else:
             if Element("Transactions", "convert_successfully").is_exist():
@@ -158,7 +158,7 @@ class TestConvertBetweenWallets(unittest.TestCase):
             else:
                 self.log.write_result("convert wallet between CNY and bits NG")
 
-            Element("common", "close").click()
+            Element("comm", "close").click()
 
         bcommon.delete_wallets(self.driver)
 

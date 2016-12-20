@@ -6,7 +6,7 @@ from urllib.error import URLError
 import readConfig as readConfig
 from testSet.common.DRIVER import MyDriver
 from testSet.common.AppiumServer import AppiumServer
-import common.Log as Log
+import comm.Log as Log
 from testSet.common import HTMLTestRunner
 
 readConfigLocal = readConfig.ReadConfig()
