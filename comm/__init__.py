@@ -33,6 +33,7 @@ def __set_log():
 
 # __set_log()
 
-__all__ = ['bsnsCommon', 'DRIVER', 'get_element', 'get_elements', 'ReadConfig']
+__all__ = ['bsnsCommon', 'DRIVER', 'get_element', 'get_elements', 'ReadConfig', 'macacaServer']
 from . import bsnsCommon
 from .common import get_element, get_elements, DRIVER, ReadConfig
+from .driver import macacaServer

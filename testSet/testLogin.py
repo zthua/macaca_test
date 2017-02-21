@@ -39,8 +39,6 @@ class TestLogin(unittest.TestCase):
 
         self.check_login(phone_number)
 
-        # bcommon.logout()
-
     def check_login(self, number):
         value = number.replace(" ", "")
 

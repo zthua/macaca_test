@@ -60,6 +60,7 @@ class InitDevice:
 
         return device
 
+
 def is_using(port):
     """
     判断端口号是否被占用
@@ -94,31 +95,16 @@ def get_port(count):
     return port_list
 
 
-def _clear_country(udid):
-    """
-    发送删除命令
-    :return:
-    """
-
-    os.popen("adb -s %s shell input keyevent KEYCODE_MOVE_END"% udid)
-
-    cmd = "adb -s %s shell input keyevent KEYCODE_DEL" % udid
-
-    for i in range(5):
-        os.popen(cmd)
-
-    os.popen("adb -s %s shell input keyevent KEYCODE_MOVE_END"% udid)
-
-
 class macacaServer():
-    def __init__(self, devices):
+    def __init__(self):
 
-        self.devices = devices
-        self.count = len(devices)
-        self.cmd = 'macaca server -p %s --verbose'
+        i = InitDevice()
+
+        self.devices = i.get_device()
+        self.count = len(self.devices)
         self.url = 'http://127.0.0.1:%s/wd/hub/status'
 
-    def start_server(self):
+    def run(self):
 
         pool = Pool(processes=self.count)
         port_list = get_port(self.count)
@@ -146,18 +132,6 @@ class macacaServer():
 
         DRIVER.set_driver(driver)
         DRIVER.set_OS(device.get("platformName"))
-
-        if device.get("platformName") == "Android":
-
-            while get_element("common", "permission_allow") is None:
-                sleep(1)
-
-            get_element("common", "permission_allow").click()
-
-            sleep(5)
-            get_element("Login", "country_code").click()
-            _clear_country(device.get("udid"))
-            driver.element("id", "com.btcc.mobi:id/country_code").send_keys("86")
 
         self.run_test()
 
@@ -251,17 +225,3 @@ class AllTests:
 
         runner = unittest.TextTestRunner()
         runner.run(suite)
-
-
-if __name__ == "__main__":
-
-    # try:
-    #     response = requests.get("http://127.0.0.1:3456/wd/hub/status", timeout=0.01)
-    # except requests.exceptions.ConnectionError:
-    #
-    #     print("error")
-
-    i = InitDevice()
-
-    m = macacaServer(i.get_device())
-    m.start_server()

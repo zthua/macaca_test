@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
 
-    <!--导航页面 -->
-    <activity name = "Login"><!--activity名称-->
+    <activity name = "Login">
 
         <element name="country_code">
             <pathtype>id</pathtype>

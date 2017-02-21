@@ -1,5 +1,4 @@
 #encoding:utf-8
-__author__ = 'yongzhang'
 """
 A TestRunner for use with the Python unit testing framework. It
 generates a HTML report to show the result at a glance.
